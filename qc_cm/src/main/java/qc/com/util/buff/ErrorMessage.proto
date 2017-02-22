@@ -1,0 +1,14 @@
+package com.huipu.common.util;
+
+message ErrorMsg {
+	optional Request REQUEST 	= 1;
+  	optional Response RESPONSE 	= 2;
+  	//请求体定义
+	message Request {
+  	}
+  	//响应体定义
+	message Response {
+		optional bytes 	ERRORMSG	= 1 ;
+  	}
+
+}

@@ -1,0 +1,6 @@
+*.class
+*.epoch
+*.out
+*.lck
+*.log
+*.prefs

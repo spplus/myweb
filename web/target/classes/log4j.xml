@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}][%-5p][20][%m]%n" />
+		</layout>
+	</appender>
+
+	<appender name="debugLog"
+		class="qc.com.log4j.DailyRollingBySizeFileAppender">
+		<param name="File"
+			value="/data/workspace_dubbo/log/QC_WEB/QC_WEB_debug.log" />
+		<param name="maxFileSize" value="10240KB" />
+		<param name="maxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}][%-5p][20][%m]%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="DEBUG" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+
+	<appender name="infoLog"
+		class="qc.com.log4j.DailyRollingBySizeFileAppender">
+		<param name="File" value="/data/workspace_dubbo/log/QC_WEB/QC_WEB_info.log" />
+		<param name="maxFileSize" value="10240KB" />
+		<param name="maxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}][%-5p][20][%m]%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="INFO" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+
+	<appender name="warnLog"
+		class="qc.com.log4j.DailyRollingBySizeFileAppender">
+		<param name="File" value="/data/workspace_dubbo/log/QC_WEB/QC_WEB_warn.log" />
+		<param name="maxFileSize" value="10240KB" />
+		<param name="maxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}][%-5p][20][%m]%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="WARN" />
+			<param name="LevelMin" value="WARN" />
+		</filter>
+	</appender>
+
+	<appender name="errorLog"
+		class="qc.com.log4j.DailyRollingBySizeFileAppender">
+		<param name="File"
+			value="/data/workspace_dubbo/log/QC_WEB/QC_WEB_error.log" />
+		<param name="maxFileSize" value="10240KB" />
+		<param name="maxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}][%-5p][20][%m]%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="sysLog" class="org.apache.log4j.net.SyslogAppender">
+		<param name="SyslogHost" value="192.168.0.35" />
+		<param name="Facility" value="local3" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value=":[%d{yyyy-MM-dd HH:mm:ss}][%-5p][20][%m]%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+
+	<category name="com.alibaba" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="warnLog" />
+		<appender-ref ref="errorLog" />
+		<appender-ref ref="sysLog" />
+	</category>
+
+	<category name="atomikos" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="warnLog" />
+		<appender-ref ref="errorLog" />
+		<appender-ref ref="sysLog" />
+	</category>
+
+	<category name="org" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="warnLog" />
+		<appender-ref ref="errorLog" />
+		<appender-ref ref="sysLog" />
+	</category>
+
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="debugLog" />
+		<appender-ref ref="infoLog" />
+		<appender-ref ref="warnLog" />
+		<appender-ref ref="errorLog" />
+		<appender-ref ref="sysLog" />
+	</root>
+</log4j:configuration>

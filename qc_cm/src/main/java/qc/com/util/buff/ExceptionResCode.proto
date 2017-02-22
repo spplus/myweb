@@ -1,0 +1,257 @@
+/*
+ * 说明：此文件定义系统状态码及其对应描述。java和c++共用一套。
+ * 命名约束：
+ *  失败状态码以：ERROR+'_'+具体状态码值，如ERROR_10001
+ *  状态码描述信息已：MSG+'_'+具体描述信息，如MSG_10001
+ */
+package com.huipu.common.util;
+
+message ExceptionCodeMsg {
+	
+	optional uint32 SUCCESS_CODE 		= 1 [default = 1000];
+	optional bytes 	MSG_1000	 		= 2 [default = "系统报文成功响应代码"];
+
+	optional uint32 EXCEPTION_CODE 		= 3 [default = 1001];
+	optional bytes 	MSG_1001	 		= 4 [default = "系统异常"];
+
+	optional uint32 ERROR_401002 		= 5 [default = 401002];
+	optional bytes 	MSG_401002	 		= 6 [default = "您的客户账户已在别处登录，您被迫下线。"];
+
+	optional uint32 ERROR_401003 		= 7 [default = 401003];
+	optional bytes 	MSG_401003	 		= 8 [default = "您尚未开通此版本的系统登录权限，暂时无法登录，请联系您开户的债权管理公司开通服务！"];
+	
+   	optional uint32 ERROR_DYNAMIC_LOW_490000 = 9[default = 490000];// 动态业务错误标示
+   	optional uint32 ERROR_DYNAMIC_UP_499999  = 10[default = 499999];// 动态业务错误标示
+
+    //转让相关错误定义
+    optional uint32 ERROR_408001        = 11 [default = 408001];
+    optional bytes 	MSG_408001	 		= 12 [default = "您尚未开通网上转让服务，请到您开户的债权管理公司营业网点开通此项服务并领取CFCA证书。"];
+
+    optional uint32 ERROR_408002        = 13 [default = 408002];
+    optional bytes 	MSG_408002	 		= 14 [default = "请插入正确的CFCA证书(USBKey)！"];
+
+    optional uint32 ERROR_408003        = 15 [default = 408003];
+    optional bytes 	MSG_408003	 		= 16 [default = "受让人信息不正确，请重新输入"];
+
+    optional uint32 ERROR_408004        = 17 [default = 408004];
+    optional bytes 	MSG_408004	 		= 18 [default = "密码不正确，请重新输入"];
+
+    optional uint32 ERROR_490001        = 19 [default = 490001];
+    optional uint32 ERROR_490002        = 20 [default = 490002];
+
+    optional uint32 ERROR_408005        = 21 [default = 408005];
+    optional bytes 	MSG_408005	 		= 22 [default = "债权转让提交失败，可能是债权可用余额不足或受让人信息有误或其他原因所致，您可以刷新列表数据后重新提交！"];
+
+    optional uint32 ERROR_408006        = 23 [default = 408006];
+    optional bytes 	MSG_408006	 		= 24 [default = "插入转出明细数据不正确！"];
+
+    optional uint32 ERROR_408007        = 25 [default = 408007];
+    optional bytes 	MSG_408007	 		= 26 [default = "插入子债权日志数据不正确！"];
+
+    optional uint32 ERROR_408008        = 27 [default = 408008];
+    optional bytes 	MSG_408008	 		= 28 [default = "插入数字签名记录不正确！"];
+
+    optional uint32 ERROR_408009        = 29 [default = 408009];
+    optional bytes 	MSG_408009	 		= 30 [default = "插入短信记录错误！"];
+
+    optional uint32 ERROR_408010        = 31 [default = 408010];
+    optional bytes 	MSG_408010	 		= 32 [default = "该债权转让需求状态为：【转让中】，不可取消！"];
+
+    optional uint32 ERROR_408011        = 33 [default = 408011];
+    optional bytes 	MSG_408011	 		= 34 [default = "该债权转让需求状态为：【转让成功】，不可取消！"];
+
+    optional uint32 ERROR_408012        = 35 [default = 408012];
+    optional bytes 	MSG_408012	 		= 36 [default = "该债权转让需求状态为：【已关闭】，不可取消！"];
+
+	optional uint32 ERROR_408013        = 37 [default = 408013];
+    optional bytes 	MSG_408013	 		= 38 [default = "撤销债权转让需求信息不正确！"];
+
+    optional uint32 ERROR_408014        = 39 [default = 408014];
+    optional bytes 	MSG_408014	 		= 40 [default = "客户持仓冻结金额更新出错！"];
+
+    optional uint32 ERROR_408015        = 41 [default = 408015];
+    optional bytes 	MSG_408015	 		= 42 [default = "客户账户不能为空！"];
+
+    optional uint32 ERROR_408016        = 43 [default = 408016];
+    optional bytes 	MSG_408016	 		= 44 [default = "保存常用客户失败，请刷新列表数据后重试！"];
+
+    optional uint32 ERROR_408017        = 45 [default = 408017];
+    optional bytes 	MSG_408017	 		= 46 [default = "该客户已在常用客户中"];
+
+    optional uint32 ERROR_408018        = 47 [default = 408018];
+    optional bytes 	MSG_408018	 		= 48 [default = "客户号或客户名称不正确"];
+
+    optional uint32 ERROR_408019        = 49 [default = 408019];
+    optional bytes 	MSG_408019	 		= 50 [default = "删除常用客户失败，请刷新列表数据后重试！"];
+    
+    optional uint32 ERROR_408020 		= 51 [default = 408020];
+	optional bytes 	MSG_408020	 		= 52 [default = "错误的入口！"];
+	
+	optional uint32 ERROR_408021 		= 53 [default = 408021];
+	optional bytes 	MSG_408021	 		= 54 [default = "请输入客户号或组织机构代码！"];
+	
+	optional uint32 ERROR_408022 		= 55 [default = 408022];
+	optional bytes 	MSG_408022	 		= 56 [default = "请输入客户账户或身份证！"];
+	
+	optional uint32 ERROR_408023 		= 57 [default = 408023];
+	optional bytes 	MSG_408023	 		= 58 [default = "请输入密码！"];
+	
+	optional uint32 ERROR_408024 		= 59 [default = 408024];
+	optional bytes 	MSG_408024	 		= 60 [default = "无效的请求！"];
+	
+	optional uint32 ERROR_408025 		= 61 [default = 408025];
+	optional bytes 	MSG_408025	 		= 62 [default = "登录账户或密码不正确！"];
+	
+	optional uint32 ERROR_408026 		= 63 [default = 408026];
+	optional bytes 	MSG_408026	 		= 64 [default = "该手机号已注册多个客户，请使用客户号登录！"];
+	
+	optional uint32 ERROR_408027 		= 65 [default = 408027];
+	optional bytes 	MSG_408027	 		= 66 [default = "您输入的密码有误！"];
+	
+	optional uint32 ERROR_408028 		= 67 [default = 408028];
+	optional bytes 	MSG_408028 			= 68 [default = "该客户开通的手机客户端业务尚未生效！"];
+
+	optional uint32 ERROR_408029 		= 69 [default = 408029];
+	optional bytes 	MSG_408029	 		= 70 [default = "该客户开通的手机客户端业务已失效！"];
+	
+	optional uint32 ERROR_490003 		= 71 [default = 490003];
+	optional bytes 	MSG_490003	 		= 72 [default = "当日登录密码错误次数超限！"];
+
+	optional uint32 ERROR_408030 		= 73 [default = 408030];
+	optional bytes 	MSG_408030	 		= 74 [default = "保存分组失败！"];
+
+	optional uint32 ERROR_408031 		= 75 [default = 408031];
+	optional bytes 	MSG_408031	 		= 76 [default = "该分组名称已存在"];
+
+	optional uint32 ERROR_408032 		= 77 [default = 408032];
+	optional bytes 	MSG_408032	 		= 78 [default = "只有空的分组才能被删除"];
+
+	optional uint32 ERROR_408033 		= 79 [default = 408033];
+	optional bytes 	MSG_408033	 		= 80 [default = "删除组失败！"];
+
+	optional uint32 ERROR_408034 		= 81 [default = 408034];
+	optional bytes 	MSG_408034	 		= 82 [default = "分组个数已达上限[20]，不允许再添加分组！"];
+
+	optional uint32 ERROR_408035 		= 83 [default = 408035];
+	optional bytes 	MSG_408035	 		= 84 [default = "转让需求信息转发失败！"];
+
+	optional uint32 ERROR_408036 		= 85 [default = 408036];
+	optional bytes 	MSG_408036	 		= 86 [default = "所选组内没有任何好友，请先添加好友！"];
+
+	optional uint32 ERROR_408037 		= 87 [default = 408037];
+	optional bytes 	MSG_408037	 		= 88 [default = "您尚未开通网上转让功能，请到您开户的债权管理公司营业网点开通此项服务。"];
+
+    optional uint32 ERROR_408038 		= 89 [default = 408038];
+	optional bytes 	MSG_408038	 		= 90 [default = "您的客户账户已经登录或上次没有正常退出系统，是否强制登录？"];
+
+	optional uint32 ERROR_408039 		= 91 [default = 408039];
+	optional bytes 	MSG_408039	 		= 92 [default = "客户号或客户名称不正确"];
+
+	optional uint32 ERROR_408040 		= 93 [default = 408040];
+	optional bytes 	MSG_408040	 		= 94 [default = "更新持仓明细信息出错！"];
+
+	optional uint32 ERROR_408041 		= 95 [default = 408041];
+	optional bytes 	MSG_408041	 		= 96 [default = "子债权记录日志出错！"];
+
+	optional uint32 ERROR_408042 		= 97 [default = 408042];
+	optional bytes 	MSG_408042	 		= 98 [default = "该客户状态为：【冻结】，不能添加为常用客户！"];
+
+	optional uint32 ERROR_408043 		= 99 [default = 408043];
+	optional bytes 	MSG_408043	 		= 100 [default = "该客户状态为：【销户】，不能添加为常用客户！"];
+
+	optional uint32 ERROR_408044 		= 101 [default = 408044];
+	optional bytes 	MSG_408044	 		= 102 [default = "该客户状态为：【黑名单】，不能添加为常用客户！"];
+
+	optional uint32 ERROR_408045 		= 103 [default = 408045];
+	optional bytes 	MSG_408045	 		= 104 [default = "该客户状态为：【预销户】，不能添加为常用客户！"];
+
+    optional uint32 ERROR_408046 		= 105 [default = 408046];
+	optional bytes 	MSG_408046	 		= 106 [default = "出让数额不正确，系统目前仅支持单笔债权整体转让，暂不支持拆分部分转让"];
+
+	optional uint32 ERROR_408047 		= 107 [default = 408047];
+	optional bytes 	MSG_408047	 		= 108 [default = "修改分组名称失败，请刷新后重试！"];
+
+	optional uint32 ERROR_408048 		= 109 [default = 408048];
+	optional bytes 	MSG_408048	 		= 110 [default = "暂不支持未成功开户企业用户登录!"];
+	
+	optional uint32 ERROR_409001 		= 111 [default = 409001];
+	optional bytes 	MSG_409001	 		= 112 [default = "操作失败，CFCA证书在系统不存在!"];
+	
+	optional uint32 ERROR_409002 		= 113 [default = 409002];
+	optional bytes 	MSG_409002	 		= 114 [default = "操作失败，CFCA证书已过期!"];
+	
+	optional uint32 ERROR_409003 		= 115 [default = 409003];
+	optional bytes 	MSG_409003	 		= 116 [default = "操作失败，写入客户数字签名记录表出错!"];
+	
+	optional uint32 ERROR_409004 		= 117 [default = 409004];
+	optional bytes 	MSG_409004	 		= 118 [default = "操作失败，请插入自己USBKey!"];
+	
+	optional uint32 ERROR_409005 		= 119 [default = 409005];
+	optional bytes 	MSG_409005	 		= 120 [default = "操作失败，提交失败，CA验证不通过!"];
+
+    /**系统级别错误代码***/
+    optional uint32 ERROR_900000        = 1000 [default = 900000];
+    optional bytes 	MSG_900000	 		= 1001 [default = "报文丢失或被篡改！"];
+    
+    optional uint32 ERROR_102000        = 1002 [default = 102000];
+    optional bytes 	MSG_102000	 		= 1003 [default = "初始化TCP连接错误！"];
+    
+    optional uint32 ERROR_102001        = 1004 [default = 102001];
+    optional bytes 	MSG_102001	 		= 1005 [default = "服务器繁忙！"];
+    
+    optional uint32 ERROR_102002        = 1006 [default = 102002];
+    optional bytes 	MSG_102002	 		= 1007 [default = "连接会话失效！"];
+    
+    optional uint32 ERROR_102003        = 1008 [default = 102003];
+    optional bytes 	MSG_102003	 		= 1009 [default = "数据接收失败！"];
+    
+    optional uint32 ERROR_201000        = 1010 [default = 201000];
+    optional bytes 	MSG_201000	 		= 1011 [default = "请求数据读取错误！"];
+    
+    optional uint32 ERROR_201001        = 1012 [default = 201001];
+    optional bytes 	MSG_201001	 		= 1013 [default = "buff转换类不存在！"];
+    
+    optional uint32 ERROR_201002        = 1014 [default = 201002];
+    optional bytes 	MSG_201002	 		= 1015 [default = "服务未注册！"];
+    
+    optional uint32 ERROR_201003        = 1016 [default = 201003];
+    optional bytes 	MSG_201003	 		= 1017 [default = "目标主机响应异常！"];
+    
+    optional uint32 ERROR_201004        = 1018 [default = 201004];
+    optional bytes 	MSG_201004	 		= 1019 [default = "目标主机通信异常！"];
+    
+    optional uint32 ERROR_201005        = 1020 [default = 201005];
+    optional bytes 	MSG_201005	 		= 1021 [default = "ESB内部错误！"];
+    
+    optional uint32 ERROR_301000        = 1022 [default = 301000];
+    optional bytes 	MSG_301000	 		= 1023 [default = "解析消息头错误！"];
+    
+    optional uint32 ERROR_301001        = 1024 [default = 301001];
+    optional bytes 	MSG_301001	 		= 1025 [default = "解析请求数据错误！"];
+    
+    optional uint32 ERROR_301002        = 1026 [default = 301002];
+    optional bytes 	MSG_301002	 		= 1027 [default = "构建响应报文错误！"];
+    
+    optional uint32 ERROR_302000        = 1028 [default = 301001];
+    optional bytes 	MSG_302000	 		= 1029 [default = "类映射错误！"];
+    
+    optional uint32 ERROR_302001        = 1030 [default = 302001];
+    optional bytes 	MSG_302001	 		= 1031 [default = "方法映射错误！"];
+    
+    optional uint32 ERROR_302002        = 1032 [default = 302002];
+    optional bytes 	MSG_302002	 		= 1033 [default = "执行方法错误！"];
+    
+    optional uint32 ERROR_302003        = 1034 [default = 302003];
+    optional bytes 	MSG_302003	 		= 1035 [default = "服务未定义！"];
+    
+    optional uint32 ERROR_302004        = 1036 [default = 302004];
+    optional bytes 	MSG_302004	 		= 1037 [default = "buff转换类不存在！"];
+    
+    optional uint32 ERROR_101000        = 1038 [default = 101000];
+    optional bytes 	MSG_101000	 		= 1039 [default = "构建请求报文错误！"];
+    
+    optional uint32 ERROR_101001        = 1040 [default = 101001];
+    optional bytes 	MSG_101001	 		= 1041 [default = "解析响应报文错误！"];
+
+    optional uint32 ERROR_DYNAMIC_999999   = 1042 [default = 999999];//错误动态代码99999 BOSS系统中使用
+}
