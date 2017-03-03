@@ -28,18 +28,7 @@ public class UserMgrService implements IUserMgr{
 	 * 
 	 */
 	
-	/*
-	public Map<String,Object> userLogin(Map<String,Object> req){
-		
-		HpLogger.debug("userLogin..."+req.toString());
 	
-		Map<String,Object> res = new HashMap<String, Object>();
-		
-		return ResponseUtil.FormatResMsg(ResCode.SUCCESS, null, "查询执行成功", res, false);
-	}
-	
-	*/
-
 
 	@Override
 	public Map<String, Object> userLogin(Map<String, Object> req) {
