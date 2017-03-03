@@ -16,13 +16,13 @@
 		
 		<dependency>
 			<groupId>qcyy</groupId>
-			<artifactId>QC_DM</artifactId>
+			<artifactId>qc_dm</artifactId>
 			<version>1</version>
 		</dependency>
 	
 		<dependency>
 			<groupId>qcyy</groupId>
-			<artifactId>QC_IF</artifactId>
+			<artifactId>qc_if</artifactId>
 			<version>1</version>
 		</dependency>
 	
